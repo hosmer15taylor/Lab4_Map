@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        #map {
+            width: 1320px;
+            height: 903px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/joinedlayer_1.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[40.6036313136454,-74.1678263049956],[40.8939330246454,-73.74316742031414]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        var layer_OSMStandard_0 = L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            opacity: 1.0,
+            attribution: '<a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors, CC-BY-SA</a>',
+        });
+        layer_OSMStandard_0;
+        map.addLayer(layer_OSMStandard_0);
+        function pop_joinedlayer_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['fid'] !== null ? Autolinker.link(String(feature.properties['fid'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['left'] !== null ? Autolinker.link(String(feature.properties['left'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['bottom'] !== null ? Autolinker.link(String(feature.properties['bottom'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['right'] !== null ? Autolinker.link(String(feature.properties['right'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['top'] !== null ? Autolinker.link(String(feature.properties['top'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['hexID'] !== null ? Autolinker.link(String(feature.properties['hexID'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['hexid_1'] !== null ? Autolinker.link(String(feature.properties['hexid_1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['hexid_2'] !== null ? Autolinker.link(String(feature.properties['hexid_2'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['tip prct of fare_count'] !== null ? Autolinker.link(String(feature.properties['tip prct of fare_count'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['tip prct of fare_median'] !== null ? Autolinker.link(String(feature.properties['tip prct of fare_median'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_joinedlayer_1_0(feature) {
+            if (feature.properties['tip prct of fare_median'] >= 0.000000 && feature.properties['tip prct of fare_median'] <= 0.019608 ) {
+                return {
+                pane: 'pane_joinedlayer_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(247,251,255,1.0)',
+            }
+            }
+            if (feature.properties['tip prct of fare_median'] >= 0.019608 && feature.properties['tip prct of fare_median'] <= 0.076825 ) {
+                return {
+                pane: 'pane_joinedlayer_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(200,221,240,1.0)',
+            }
+            }
+            if (feature.properties['tip prct of fare_median'] >= 0.076825 && feature.properties['tip prct of fare_median'] <= 0.142857 ) {
+                return {
+                pane: 'pane_joinedlayer_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(115,179,216,1.0)',
+            }
+            }
+            if (feature.properties['tip prct of fare_median'] >= 0.142857 && feature.properties['tip prct of fare_median'] <= 0.187778 ) {
+                return {
+                pane: 'pane_joinedlayer_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(40,121,185,1.0)',
+            }
+            }
+            if (feature.properties['tip prct of fare_median'] >= 0.187778 && feature.properties['tip prct of fare_median'] <= 0.240651 ) {
+                return {
+                pane: 'pane_joinedlayer_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(8,48,107,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_joinedlayer_1');
+        map.getPane('pane_joinedlayer_1').style.zIndex = 401;
+        map.getPane('pane_joinedlayer_1').style['mix-blend-mode'] = 'normal';
+        var layer_joinedlayer_1 = new L.geoJson(json_joinedlayer_1, {
+            attribution: '',
+            pane: 'pane_joinedlayer_1',
+            onEachFeature: pop_joinedlayer_1,
+            style: style_joinedlayer_1_0,
+        });
+        bounds_group.addLayer(layer_joinedlayer_1);
+        map.addLayer(layer_joinedlayer_1);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'joined layer<br /><table><tr><td style="text-align: center;"><img src="legend/joinedlayer_1_000000200.png" /></td><td> 0.000 - 0.020 </td></tr><tr><td style="text-align: center;"><img src="legend/joinedlayer_1_002000771.png" /></td><td> 0.020 - 0.077 </td></tr><tr><td style="text-align: center;"><img src="legend/joinedlayer_1_007701432.png" /></td><td> 0.077 - 0.143 </td></tr><tr><td style="text-align: center;"><img src="legend/joinedlayer_1_014301883.png" /></td><td> 0.143 - 0.188 </td></tr><tr><td style="text-align: center;"><img src="legend/joinedlayer_1_018802414.png" /></td><td> 0.188 - 0.241 </td></tr></table>': layer_joinedlayer_1,"OSM Standard": layer_OSMStandard_0,},{collapsed:false}).addTo(map);
+        setBounds();
+        </script>
+    </body>
+</html>
